@@ -1,0 +1,67 @@
+<html>
+<head>
+	<title></title>
+<style type="text/css">
+	 th, td{
+		width:200px!important;
+	}
+	th{
+		text-align: center;
+	}
+	td{
+		text-align: left;
+	}
+
+</style>
+</head>
+<body>
+
+
+<script type="text/javascript">
+	document.write("<table border='1' cellspacing='0' cellpadding='0'><tr><th>Decimal</th><th>Binary</th></tr>");
+var sum = 0;
+	for(var i=1;i<1000000;i++){
+		////////
+		var a = i;
+		var reverse = 0;
+		 while (a != 0){
+			    reverse = reverse * 10;
+			    reverse = reverse + a%10;
+			    a = Math.floor(a/10);
+		}//check reverse
+		if(i == reverse){
+			//console.log(i +" is palindrome");
+			var b = i;
+			var binary = '';
+			while ( b > 0 ) { 
+				binary = (  b % 2 ) + binary; 
+				b = Math.floor( b / 2 ); 
+			} 
+			var BinaryNum = parseInt(binary);
+			var BinaryNum2 = BinaryNum;
+			// console.log(typeof(BinaryNum2));
+			// console.log(BinaryNum2);
+			var reverse = 0;
+			while (BinaryNum2 != 0){
+			   reverse = reverse * 10;
+			    reverse = reverse + BinaryNum2%10;
+			    BinaryNum2 = Math.floor(BinaryNum2/10);
+			}
+			
+			if(reverse == BinaryNum){
+				console.log(i + " "+ BinaryNum);
+				
+				document.write("<tr><td>"+i+"</td><td>"+BinaryNum+"</td></tr>")
+				sum +=i;
+			}
+
+		}
+		////////////////
+	}//Main Loop
+	document.write("</table><br>");
+	console.log(" Sum of 2 way palindrome Number less than 1 million is "+sum);
+	document.write(" Sum of 2 way palindrome Number less than 1 million is "+sum+"<br>");
+
+</script>
+</body>
+</html>
